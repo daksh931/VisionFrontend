@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { setToken, setUserData } from "../../store/Slices/authSlice";
 import { useSelector } from "react-redux";
+import { BorderBeam } from "./MagicUI/borderbeam";
 
 
 export default function Signup() {
@@ -71,7 +72,7 @@ export default function Signup() {
       <form method="post" onSubmit={handleSubmit}  >
 
         <div id="Signup-container" className="flex flex-col w-full min-h-[120vh] bg-slate-100">
-          <div className="self-center mt-12 shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-gray-400  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold">
+          <div className="relative self-center mt-12 shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-slate-200  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold">
             <h2 className="text-slate-700 text-center font-bold text-2xl ">
               Signup Here
             </h2>
@@ -95,13 +96,14 @@ export default function Signup() {
             </div>
 
             <div className="flex justify-center w-full">
-              
+
 
               <button type="submit"
                 className={`align-middle w-full min-h-8 duration-300 select-none font-serif font-thin text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-md bg-zinc-950  text-white hover:text-gray-100 shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] border-[1px] border-gray-500 hover:border-gray-900 text-nowrap	 mx-2 `}
               > Signup
               </button>
             </div>
+            <BorderBeam duration={5} size={200} />
           </div>
         </div>
       </form>
