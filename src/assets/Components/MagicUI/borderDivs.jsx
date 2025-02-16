@@ -7,15 +7,14 @@ import { motion, } from "motion/react"
 
 
 
-export const BorderBeam = ({
+export const BorderDivs = ({
   className,
   size = 50,
   delay = 0,
   duration = 8,
-  // colorFrom = "#ffaa40",
-  // colorTo = "#9c40ff",
-  colorFrom = "#D3D3D3", // Light Grey
-  colorTo = "#000000", // Black
+  colorFrom = "#217b85",
+  colorTo = "#ffffff",
+
   transition,
   style,
   reverse = false,

@@ -1,0 +1,31 @@
+.moving-container {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .moving-track {
+    display: flex;
+    gap: 20px;
+    animation: moveLeft 40s linear infinite;
+    width: max-content; /* Ensures smooth looping */
+  }
+  
+  
+  
+  /* Animation for infinite scrolling */
+  @keyframes moveLeft {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  
+  /* Pause animation on hover */
+  .moving-track:hover {
+    animation-play-state: paused;
+  }
+  
