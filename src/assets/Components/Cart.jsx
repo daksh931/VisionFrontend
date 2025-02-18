@@ -1,6 +1,10 @@
 import React from 'react'
 import CItem from './ui/CItem'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { Button } from '../../../components/ui/button';
+
+
 
 
 export default function Cart() {
@@ -15,8 +19,11 @@ export default function Cart() {
                 <div className='flex  justify-center pt-8 '>
 
                     {finalTotalPrice === 0 &&
-                        <div className='flex justify-center items-center border-4 border-zinc-600 hover:border-zinc-900 w-10/12 sm:w-5/12 min-h-28 rounded-xl shadow-xl  shadow-zinc-400 hover:shadow-zinc-500  bg-zinc-200 '>
-                            <a className='text-center text-2xl hover:text-zinc-600 font-semibold'> Your Cart is Empty! </a>
+                        <div className='flex flex-col space-y-5 justify-evenly items-center border-[1px] border-zinc-600 hover:border-zinc-900 w-10/12 sm:w-5/12  rounded-xl shadow-xl  shadow-zinc-300 hover:shadow-zinc-300  bg-zinc-50 min-h-72'>
+                            <span className='text-center text-2xl text-zinc-600 font-semibold'> Your Cart is Empty! </span>
+                            
+                            
+                            <Button variant="secondary" > Explore Courses</Button>
                         </div>
 
                     }
@@ -28,7 +35,7 @@ export default function Cart() {
 
                                 {
                                     items.map((item, index) =>
-                                        <div key={index} className='  '>
+                                        <div key={index} className=''>
                                             <CItem
                                                 key={item._id}
                                                 id={item.ItemId}
@@ -77,6 +84,7 @@ export default function Cart() {
                                         <span>   Final Amount  </span>
                                         <span>   ₹ {Math.round(finalTotalPrice + (finalTotalPrice / 100) * 18)}</span>
                                     </span>
+                                    <hr />
 
                                     <button className="flex self-center bg-green-800 hover:bg-green-900 text-white font-bold py-1 
                                     px-3 rounded-lg shadow-md transition duration-300 ease-in-out max-w-28">

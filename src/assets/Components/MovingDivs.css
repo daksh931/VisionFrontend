@@ -1,5 +1,5 @@
 .moving-container {
-    width: 100vw;
+    /* width: 100vw; */
     overflow: hidden;
     white-space: nowrap;
     position: relative;
@@ -9,7 +9,8 @@
     display: flex;
     gap: 20px;
     animation: moveLeft 40s linear infinite;
-    width: max-content; /* Ensures smooth looping */
+    width: max-content; 
+    /* Ensures smooth looping */
   }
   
   

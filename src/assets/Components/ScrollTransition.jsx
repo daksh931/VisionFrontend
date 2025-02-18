@@ -14,8 +14,8 @@ const testimonials = [
 const ScrollingTestimonials = () => {
 
   return (
-    <div className="moving-container">
-      <div className="moving-track p-3 bg-slate-900 py-9 ">
+    <div className="moving-container p-3 bg-slate-900 py-9">
+      <div className="moving-track  ">
         {[...testimonials, ...testimonials,...testimonials,...testimonials].map((item, index) => (
           <div className="relative bg-slate-800 text-slate-200 hover:text-[21px] min-w-64 text-center hover:font-sans border-[1px] border-slate-500 hover:text-white hover:cursor-pointer p-3 py-6 rounded-md text-xl" key={index}>{item.name}
           <BorderBeam  delay={index * 2} reverse={index % 2 === 0} colorFrom = "#217b85" duration={6}

@@ -2,7 +2,11 @@ import React from 'react';
 import { Box, Card, CardContent, Typography, IconButton, Collapse } from '@mui/material';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { useState } from 'react';
-
+import { MagicCard } from '../../../components/ui/magic-card';
+import { motion } from "framer-motion";
+import { GridPattern } from '../../../components/ui/grid-pattern';
+import { cn } from '../../../lib/utils';
+// import "./WeOffer.css"
 const courses = [
   {
     category: 'School Education',
@@ -37,50 +41,82 @@ const WeOffer = () => {
   const handleExpandClick = (index) => {
     setExpanded(expanded === index ? null : index);
   };
-
+  const headText = "Empowering Students for a Brighter Future ...".split(" ");
   return (
-    <Box className="flex flex-wrap justify-center gap-6 p-6 bg-gray-100">
-    <Box>
-        <Typography variant='h5'>
+
+
+    
+   
+      <div className='pb-4 '>
+
+      <Box className="flex flex-wrap mx-18 justify-center gap-6 p-6 sm:mx-40 sm:pt-40 ">
+        <Box>
+          {/* <Typography variant='h2' className='sm:pt-32'>
             Vision Classes 
-        </Typography>
-        <Typography variant='h2'>
-        Empowering Students for a Brighter Future
-        </Typography>
-    </Box>
-      {courses.map((course, index) => (
-        <Card key={index} className="w-full md:w-96 bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <CardContent>
-            <Box className="flex items-center justify-between">
-              <Typography variant="h5" className="font-bold text-gray-800">
-                {course.category}
-              </Typography>
-              <IconButton
-                onClick={() => handleExpandClick(index)}
-                aria-expanded={expanded === index}
-                aria-label="show more"
+         </Typography> */}
+          <div className='mt-0 text-center '>
+
+            <div className="App">
+              {headText.map((el, i) => (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i / 3
+                  }}
+                  key={i}
+                >
+                  <span className="font-semibold  text-zinc-700 text-[6vh] sm:text-[4.5vw]  hover:text-slate-600 hover:cursor-pointer" > {el} {" "}</span>
+                </motion.span>
+              ))}
+            </div>
+
+          </div>
+        </Box>
+
+        </Box>
+
+              
+
+        {/* courses section  */}
+        <div className='flex flex-col justify-center sm:flex-col w-full sm:px-52 sm:-space-y-24'>
+
+          {courses.map((course, index) => (
+            <div
+              key={index}
+              className={`flex justify-center ${index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
+                } mt-12`}
+            >
+              <div
+                className={`shadow-xl rounded-full shadow-zinc-200 hover:shadow-zinc-300
+      ${index % 2 === 0 ? "border-b-2 border-r-[1px]" : "border-t-2 border-l-[1px] "} border-slate-400  
+      h-60 w-60 sm:h-60 sm:w-60 md:h-96 md:w-96 bg-slate-50 p-4 font-semibold overflow-hidden 
+      flex items-center justify-center`}
               >
-              <ExpandMoreIcon />
-              </IconButton>
-            </Box>
-            <Collapse in={expanded === index} timeout="auto" unmountOnExit>
-              <Box className="mt-4 space-y-4">
-                {course.details.map((detail, i) => (
-                  <Box key={i} className="border-l-4 pl-4 border-gray-500">
-                    <Typography variant="subtitle1" className="font-semibold text-gray-700">
-                      {detail.title}
-                    </Typography>
-                    <Typography variant="body2" className="text-gray-600">
-                      {detail.description}
-                    </Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Collapse>
-          </CardContent>
-        </Card>
-      ))}
-    </Box>
+                <h2 className="text-slate-700 text-center font-bold text-2xl">
+                  {course.category}
+                </h2>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+
+      
+{/* 
+      <div className={"flex h-[500px] w-60 flex-col gap-4 lg:h-[250px] "}>
+        <MagicCard
+          className="h-52 cursor-pointer w-full flex-col items-center justify-center whitespace-nowrap text-4xl "
+
+        >
+          <div className=' bg-black'>
+            Magic </div>
+        </MagicCard>
+
+      </div> */}
+    </div>
   );
 };
 

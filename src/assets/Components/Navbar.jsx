@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import {
   FaBars,
-  FaArrowLeft,
-  FaUser,
-  FaCross,
   FaWindowClose,
 } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
@@ -12,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./ui/Button";
+
+import { Dock, DockIcon } from "../../../components/ui/dock";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -40,9 +39,47 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
+        {/* <div className="hidden md:flex space-x-6">
           <NavLinks />
+        </div> */}
+        {/* Desktop Menu */}
+        <div className="relative text-nowrap hidden justify-center items-center md:flex  w-full ">
+          <div>
+
+            <Dock direction="middle" className=" space-x-9 h-9" >
+              {/* <NavLinks /> */}
+              <DockIcon >
+                <Link
+                  to={"/"}
+                  className="block py-2 px-3 text-lg font-semibold text-slate-200 hover:text-white hover:border-b-[1px] hover:border-slate-100 ">
+                  Dashboard
+                </Link>
+              </DockIcon>
+              <DockIcon >
+                <Link
+                  to={"/courses"}
+                  className="block py-2 px-3 text-lg font-semibold text-slate-200 hover:text-white hover:border-b-[1px] hover:border-slate-100 ">
+                  Courses
+                </Link>
+              </DockIcon>
+              <DockIcon >
+                <Link
+                  to={"/about"}
+                  className="block py-2 px-3 text-lg font-semibold text-slate-200 hover:text-white hover:border-b-[1px] hover:border-slate-100 ">
+                  About Us
+                </Link>
+              </DockIcon>
+              <DockIcon >
+                <Link
+                  to={"/contact"}
+                  className="block py-2 px-3 text-lg font-semibold text-slate-200 hover:text-white hover:border-b-[1px] hover:border-slate-100 ">
+                  Contact Us
+                </Link>
+              </DockIcon>
+            </Dock>
+          </div>
         </div>
+
 
         {/* Cart & Profile */}
         <div className="flex items-center space-x-4">
@@ -87,7 +124,7 @@ export default function Navbar() {
               <img src="/logo1.svg" alt="My Courses Logo" className="h-10 w-20" />
 
             </div>
-            <hr/>
+            <hr />
             <NavLinks closeMenu={() => setNavOpen(false)} />
           </motion.div>
         )}
@@ -104,14 +141,16 @@ const NavLinks = ({ closeMenu }) => (
       { name: "About Us", to: "/about" },
       { name: "Contact Us", to: "/contact" },
     ].map((link, index) => (
-      <Link
-        key={index}
-        to={link.to}
-        className="block py-2 px-4 text-lg font-semibold hover:bg-gray-700 rounded-md transition"
-        onClick={closeMenu}
-      >
-        {link.name}
-      </Link>
+     
+        <Link
+          key={index}
+          to={link.to}
+          className="block py-2 px-3 text-lg font-semibold text-slate-200 hover:text-white hover:border-b-[1px] hover:border-slate-100 "
+          onClick={closeMenu}
+        >
+          {link.name}
+        </Link>
+
     ))}
   </>
 );
