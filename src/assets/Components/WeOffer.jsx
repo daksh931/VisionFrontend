@@ -47,7 +47,7 @@ const WeOffer = () => {
 
     
    
-      <div className='pb-4 '>
+      <div className='pb-12 bg-white bg-[radial-gradient(ellipse_70%_90%_at_50%_-10%,rgba(120,119,198,0.3),rgba(255,255,255,0))] '>
 
       <Box className="flex flex-wrap mx-18 justify-center gap-6 p-6 sm:mx-40 sm:pt-40 ">
         <Box>
@@ -77,10 +77,11 @@ const WeOffer = () => {
 
         </Box>
 
-              
+        <hr className="mx-3 border-0 h-[2px] w-full bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
+
 
         {/* courses section  */}
-        <div className='flex flex-col justify-center sm:flex-col w-full sm:px-52 sm:-space-y-24'>
+        <div className='flex flex-col justify-center sm:flex-col w-full sm:px-52 sm:-space-y-32'>
 
           {courses.map((course, index) => (
             <div
@@ -91,10 +92,10 @@ const WeOffer = () => {
               <div
                 className={`shadow-xl rounded-full shadow-zinc-200 hover:shadow-zinc-300
       ${index % 2 === 0 ? "border-b-2 border-r-[1px]" : "border-t-2 border-l-[1px] "} border-slate-400  
-      h-60 w-60 sm:h-60 sm:w-60 md:h-96 md:w-96 bg-slate-50 p-4 font-semibold overflow-hidden 
+      h-60 w-60 sm:h-60 sm:w-60 md:h-96 md:w-96 bg-zinc-50 p-4 font-semibold overflow-hidden 
       flex items-center justify-center`}
               >
-                <h2 className="text-slate-700 text-center font-bold text-2xl">
+                <h2 className="text-slate-700 text-center font-bold text-3xl">
                   {course.category}
                 </h2>
               </div>
