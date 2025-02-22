@@ -17,7 +17,13 @@ import Contact from './assets/Components/Contact'
 import Cookies from 'js-cookie';
 import ProtectedRoute from './ProtectedRoute'
 import AdminRoute from './AdminRoute'
+<<<<<<< Updated upstream
 
+=======
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import HoverBorderCircle from './assets/Components/MovingHover'
+>>>>>>> Stashed changes
 
 function App() {
   const token = Cookies.get('token');
@@ -32,6 +38,8 @@ function App() {
       <Routes>
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/hoverBorder' element={<HoverBorderCircle />}/>
+
         {/* <Route path='/googlelogin' element={< />} /> */}
         {/* <Route path='/' element={<Courses />} /> */}
         <Route path='/' element={<HomePage/>}/>
@@ -47,6 +55,7 @@ function App() {
           <Route path='logout' element={<Logout />} />
           <Route path='/' element={<AdminRoute />}>
           <Route path='addCourse' element={<AddCourse />} />
+
           </Route>
         </Route>
       </Routes>
