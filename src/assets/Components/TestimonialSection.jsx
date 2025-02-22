@@ -1,247 +1,134 @@
-import React from 'react';
-import { Box, Card, CardContent, Typography, Avatar } from '@mui/material';
-import { useState } from 'react';
+"use client";
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const testimonials = [
   {
     id: 1,
-    name: 'John Doe',
-    role: 'Software Engineer',
-    image: '/path/to/profile1.jpg',
-    content: 'This platform helped me improve my skills and land my dream job!',
+    name: "John Doe",
+    email: "john@example.com",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    description:
+      "This platform has completely transformed my learning experience. Highly recommended!",
   },
   {
     id: 2,
-    name: 'Jane Smith',
-    role: 'Data Scientist',
-    image: '/path/to/profile2.jpg',
-    content: 'I found amazing resources and a supportive community here.',
+    name: "Jane Smith",
+    email: "jane@example.com",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    description:
+      "An amazing service with great support. I love how intuitive the platform is!",
   },
   {
     id: 3,
-    name: 'Alice Johnson',
-    role: 'Product Designer',
-    image: '/path/to/profile3.jpg',
-    content: 'The courses are well-structured, and the instructors are knowledgeable.',
+    name: "Michael Brown",
+    email: "michael@example.com",
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    description:
+      "Excellent experience! The team is super responsive and the quality is top-notch.",
+  },
+  {
+    id: 4,
+    name: "Sophia Johnson",
+    email: "sophia@example.com",
+    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    description:
+      "Really impressed with the service. I’ve never had such a smooth experience before!",
+  },
+  {
+    id: 5,
+    name: "David Wilson",
+    email: "david@example.com",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    description:
+      "I love the attention to detail and the great customer support provided.",
   },
 ];
 
-const TestimonialSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const Testimonials = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
-    <section class="py-10 bg-gray-100 sm:py-16 lg:py-24">
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">What our customers say</h2>
-            <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
-        </div>
+    <section className="bg-gray-100 py-16 px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-center mb-10"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          What Our Users Say
+        </h2>
+        <p className="text-gray-600 mt-2">
+          Real experiences from our satisfied users.
+        </p>
+      </motion.div>
 
-        <div class="grid grid-cols-1 gap-6 px-4 mt-12 sm:px-0 xl:mt-20 xl:grid-cols-4 sm:grid-cols-2">
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-1.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Darrell Steward</p>
-                            <p class="text-sm text-gray-600 truncate">@darrels</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.
-                            <span class="block text-sky-500">#another</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-2.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Leslie Alexander</p>
-                            <p class="text-sm text-gray-600 truncate">@lesslie</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            Simply the best. Better than all the rest. I’d recommend this product to beginners and advanced users.
-                            <span class="block text-sky-500">#Celebration</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-3.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Jenny Wilson</p>
-                            <p class="text-sm text-gray-600 truncate">@jennywilson</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            This is a top quality product. No need to think twice before making it live on web.
-                            <span class="block text-sky-500">#make_it_fast</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-4.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Kristin Watson</p>
-                            <p class="text-sm text-gray-600 truncate">@kristinwatson2</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            YFinally, I’ve found a template that covers all bases for a bootstrapped startup. We were able to launch in days, not months.
-                            <span class="block text-sky-500">#Celebration</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-5.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Guy Hawkins</p>
-                            <p class="text-sm text-gray-600 truncate">@jennywilson</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            This is a top quality product. No need to think twice before making it live on web.
-                            <span class="block text-sky-500">#make_it_fast</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-6.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Marvin McKinney</p>
-                            <p class="text-sm text-gray-600 truncate">@darrels</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            With Celebration, it’s quicker with the customer, the customer is more ensured of getting exactly what they ordered, and I’m all for the efficiency.
-                            <span class="block text-sky-500">#dev #tools</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-7.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Annette Black</p>
-                            <p class="text-sm text-gray-600 truncate">@darrels</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.
-                            <span class="block text-sky-500">#another</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="overflow-hidden bg-white rounded-md">
-                <div class="px-5 py-6">
-                    <div class="flex items-center justify-between">
-                        <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/testimonials/7/avatar-8.jpg" alt="" />
-                        <div class="min-w-0 ml-3 mr-auto">
-                            <p class="text-base font-semibold text-black truncate">Floyd Miles</p>
-                            <p class="text-sm text-gray-600 truncate">@darrels</p>
-                        </div>
-                        <a href="#" title="" class="inline-block text-sky-500">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <blockquote class="mt-5">
-                        <p class="text-base text-gray-800">
-                            My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.
-                            <span class="block text-sky-500">#Celebration</span>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+      <div className="max-w-5xl mx-auto relative">
+        <Slider {...settings}>
+          {testimonials.map((testimonial) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="p-4"
+            >
+              <motion.div
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                }}
+                transition={{ duration: 0.3 }}
+                className="  p-6 text-center flex flex-col justify-center items-center h-[250px] transition-all duration-300"
+              >
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-20 h-20 rounded-full border-2 border-blue-500 shadow-md"
+                />
+                <h3 className="text-lg font-semibold text-gray-800 mt-3">
+                  {testimonial.name}
+                </h3>
+                <p className="text-sm text-gray-500">{testimonial.email}</p>
+                <p className="text-gray-700 text-sm mt-2 line-clamp-3">
+                  {testimonial.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 
-export default TestimonialSection;
+export default Testimonials;
