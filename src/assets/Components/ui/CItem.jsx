@@ -3,6 +3,7 @@ import { FaMinus } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/Slices/cartSlice";
+import { toast } from 'react-toastify';
 
 
 export default function CItem(props) {
@@ -16,15 +17,17 @@ export default function CItem(props) {
         const { id, name, description, image, price, quantity, totalPrice } = props;
         // console.log(id, name, description, image, price)
         // const item={ id, name, description, image, price}
-
         dispatch(cartActions.addItemToCart({ id, name, description, image, price, quantity, totalPrice }));
+        toast.success("Item Added")
     }
+
     const removeCartHandler = () => {
         const { id, name, description, image, price, quantity, totalPrice } = props;
         // console.log(id, name, description, image, price)
         // const item={ id, name, description, image, price}
 
         dispatch(cartActions.removeItemCart({ id, name, description, image, price, quantity, totalPrice }));
+        toast.error("Item Removed")
     }
 
 
@@ -58,13 +61,13 @@ export default function CItem(props) {
                 <div className='flex flex-col justify-end mt-5 md:mt-0'>
 
                     <div id='buttons' className='flex  pr-5'>
-                    <button onClick={removeCartHandler} className="border-2 border-gray-500 px-2 h-8 rounded-md hover:bg-zinc-700 hover:text-white">
+                    <button onClick={removeCartHandler} className="border-[1px] border-zinc-800 px-2 h-8 rounded-md hover:bg-zinc-800 hover:border-black hover:text-white duration-200 ease-in-out">
                             <FaMinus /> </button>
                         
            
                         <span className='pt-[4px] px-1 min-w-8 text-center'>{props.quantity}</span>
 
-                        <button onClick={addToCartHandler} className="border-2 border-gray-500 px-2 h-8 rounded-md hover:bg-zinc-700 hover:text-white font-extrabold text-xl">
+                        <button onClick={addToCartHandler} className="border-[1px] border-zinc-800 px-2 h-8 rounded-md hover:bg-zinc-800 hover:border-black hover:text-white font-extrabold text-xl transition-all duration-200 ease-in-out">
                             < IoMdAdd /> </button>
                     </div>
                     <div id='totalprice per cartItem' className='flex  font-semibold tracking-tighter min-w-40 pt-3'>

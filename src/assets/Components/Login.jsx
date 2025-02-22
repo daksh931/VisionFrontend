@@ -6,6 +6,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken, setUserData } from "../../store/Slices/authSlice";
 import { BorderBeam } from "./MagicUI/borderbeam";
+import { toast } from "react-toastify";
 
 
 export default function Login() {
@@ -24,6 +25,8 @@ export default function Login() {
       email: email,
       password: password,
     }
+
+    try{
 
     const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/v1/user/login",
       JSON.stringify(logindata),
@@ -46,18 +49,25 @@ export default function Login() {
 
     // console.log(res.data.token)
     // console.log(loginData)
-    console.log("Success Login")
+    // console.log("Success Login")
+    toast.success("Login Sucess");
     return navigate('/')
   }
+  catch(error){
+    toast.error("Something went wrong...")
+  }
+  }
 
-
+  {/* <div class="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div> */ }
   return (
     <>
       <form method="post" onSubmit={handleLogin}>
+        <div class=" flex flex-col top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_90%_90%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
 
-        <div className="login-container flex flex-col w-full min-h-[120vh] bg-slate-100">
+        {/* <div className="login-container flex flex-col w-full min-h-[120vh] bg-slate-100"> */}
 
-        <div className="relative self-center mt-12 shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-slate-200  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold ">
+
+          <div className="relative self-center mt-12 shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-slate-200  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold ">
             <h2 className="text-slate-700 text-center font-bold text-2xl ">
               Login Here
             </h2>

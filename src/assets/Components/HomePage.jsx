@@ -4,14 +4,18 @@ import TestimonialSection from "./TestimonialSection";
 import WeOffer from "./WeOffer";
 import InquirySection from "./InquirySection";
 import MarqueeDemo from "./MagicUI/marqueeDemo";
+import ScrollingTestimonials from "./ScrollTransition";
+import { GridPattern } from "../../../components/ui/grid-pattern";
+import { cn } from "../../../lib/utils";
 
 export default function HomePage() {
   return (
-    <div>
+   <div>
 
-      <SimpleSlider/>
-      <MarqueeCourses/>
+      {/* <SimpleSlider/> */}
       <WeOffer/>
+      {/* <MarqueeCourses/> */}
+      <ScrollingTestimonials />
       <InquirySection/>
       <TestimonialSection/>
       <MarqueeDemo />

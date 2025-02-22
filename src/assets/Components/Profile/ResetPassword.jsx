@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import Input from '../ui/Input';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ResetPassword = () => {
 
@@ -28,8 +29,10 @@ const ResetPassword = () => {
           }).  then((res) => {
             console.log(res)
             alert(res.data.message)
+            toast.success("Reset Link Successfully sent.")
           })
         } catch (error) {
+          toast.error("Something went wrong.")
           console.log(error)
           // alert(error.response.data.message)
       }

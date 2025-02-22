@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setToken, setUserData } from "../../store/Slices/authSlice";
 import { useSelector } from "react-redux";
 import { BorderBeam } from "./MagicUI/borderbeam";
+import { toast } from "react-toastify";
 
 
 export default function Signup() {
@@ -45,6 +46,8 @@ export default function Signup() {
       role: role
     }
     // console.log(signupData)
+   try{
+
     const response = await axios.post(import.meta.env.VITE_BACKEND_URL + '/api/v1/user/register',
       JSON.stringify(signupData),
       {
@@ -61,17 +64,24 @@ export default function Signup() {
         dispatch(setUserData(res.data.user))
         localStorage.setItem("user", JSON.stringify(res.data.user))
       })
+      
+        toast.success("SignUp Success...")
+    
+      return navigate('/');
+    }
 
+    catch(error){
+      toast.error("Something went wrong")
+    }
 
     // console.log("Sucessfully signedUp")
-    return navigate('/');
   }
 
   return (
     <>
       <form method="post" onSubmit={handleSubmit}  >
 
-        <div id="Signup-container" className="flex flex-col w-full min-h-[120vh] bg-slate-100">
+        <div id="Signup-container" className="flex flex-col w-full min-h-[120vh]  bg-white bg-[radial-gradient(ellipse_90%_90%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
           <div className="relative self-center mt-12 shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-slate-200  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold">
             <h2 className="text-slate-700 text-center font-bold text-2xl ">
               Signup Here

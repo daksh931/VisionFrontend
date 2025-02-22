@@ -17,13 +17,11 @@ import Contact from './assets/Components/Contact'
 import Cookies from 'js-cookie';
 import ProtectedRoute from './ProtectedRoute'
 import AdminRoute from './AdminRoute'
-<<<<<<< Updated upstream
 
-=======
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HoverBorderCircle from './assets/Components/MovingHover'
->>>>>>> Stashed changes
+
 
 function App() {
   const token = Cookies.get('token');
@@ -32,7 +30,8 @@ function App() {
   
 
   return (
-    <div>
+    <>
+       <ToastContainer position="top-center" autoClose={2200} />
       <Navbar />
       {/* by writing 'exact' prop in <Route> */}
       <Routes>
@@ -60,7 +59,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
-    </div>
+    </>
   )
 }
 
