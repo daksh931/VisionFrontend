@@ -7,17 +7,21 @@ import MarqueeDemo from "./MagicUI/marqueeDemo";
 import ScrollingTestimonials from "./ScrollTransition";
 import { GridPattern } from "../../../components/ui/grid-pattern";
 import { cn } from "../../../lib/utils";
+import EmpoweringSection from "./heroSection";
+import PopularGoals from "./PopularGoals";
 
 export default function HomePage() {
   return (
    <div>
 
       {/* <SimpleSlider/> */}
+      <TestimonialSection/>
+      <PopularGoals/>
+      <EmpoweringSection/>
+      <InquirySection/>
       <WeOffer/>
       {/* <MarqueeCourses/> */}
       <ScrollingTestimonials />
-      <InquirySection/>
-      <TestimonialSection/>
       <MarqueeDemo />
     </div>
   );

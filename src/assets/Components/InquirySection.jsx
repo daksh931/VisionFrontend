@@ -1,58 +1,78 @@
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography } from '@mui/material';
-import Input from './ui/Input';
-import { BorderBeam } from './MagicUI/borderbeam';
+"use client"; 
+import { motion } from "framer-motion";
 
-const InquirySection = () => {
-
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [message, setMessage] = useState();
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-  };
-
+const EnquirySection = () => {
   return (
-    <div className='flex min-h-[100vh] w-full items-center justify-evenly p-4 '
-    style={{
-          backgroundImage: `radial-gradient(square at  1px 1px, rgba(0,0,0,0.2) 1px,transparent 3px)`,
-          backgroundSize: "10px 10px",
-          backgroundRepeat: "repeat"}}>
-      <div
-        className=" bg-center bg-no-repeat h-96 w-2/5 rounded-lg bg-cover"
-        style={{ backgroundImage: 'url("https://images.pexels.com/photos/3183169/pexels-photo-3183169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")' }}
+    <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 bg-gray-50">
+      {/* Left Side - Inquiry Form */}
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="w-full md:w-1/2 p-8 bg-white shadow-lg rounded-lg"
       >
       
-      </div>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+        <p className="text-gray-600 mb-6">Fill out the form below, and we'll get back to you shortly.</p>
 
-      <div id="Enquiry Now " className="flex flex-col">
-        <div className="relative self-center  shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-slate-200  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold">
-          <h2 className="text-slate-700 text-center font-bold text-2xl ">
-            Enquiry Now
-          </h2>
-
-          <Input placeholder={"Name"} onChange={(e) => setName(e.target.value)} />
-          <Input placeholder={"Email"} onChange={(e) => setEmail(e.target.value)} />
-          <Input placeholder={"Message"} onChange={(e) => setMessage(e.target.value)} />
-
-
-          <div className="flex justify-center w-full pt-8">
-
-
-            <button type="submit"
-              className={`align-middle w-full min-h-8 duration-300 select-none font-serif font-thin text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-md bg-zinc-950  text-white hover:text-gray-100 shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] border-[1px] border-gray-500 hover:border-gray-900 text-nowrap	 mx-2 `}
-            > Submit
-            </button>
+        <form className="space-y-4">
+          {/* Contact Name */}
+          <div>
+            <label className="block text-gray-700 font-medium">Name</label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your name"
+            />
           </div>
-          <BorderBeam duration={5} size={200} />
-        </div>
-      </div>
-    </div>
+
+          {/* Email */}
+          <div>
+            <label className="block text-gray-700 font-medium">Email</label>
+            <input
+              type="email"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label className="block text-gray-700 font-medium">Message</label>
+            <textarea
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              rows="4"
+              placeholder="Your message..."
+            ></textarea>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+      </motion.div>
+
+      {/* Right Side - Image */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0"
+      >
+        <img
+          src="/askme.png"
+          alt="image"
+          className="rounded-lg shadow-lg"
+        />
+      </motion.div>
+    </section>
   );
 };
 
-export default InquirySection;
+export default EnquirySection;

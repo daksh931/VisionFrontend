@@ -9,7 +9,7 @@ export default function Courses() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const[loading,setLoading] = useState(true);
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
   
   useEffect(() => {
     // console.log("worked")
@@ -52,10 +52,11 @@ export default function Courses() {
   }
 
   return (
-    <div className="w-full min-h-[100vh] bg-slate-100 flex flex-col justify-evenly">
+    <div className="w-full min-h-[100vh] flex flex-col justify-evenly p-16">
       <div className="flex flex-wrap px-10 pb-3  sm:pt-1 justify-center w-full  ">
         {courseData.map((item, index) => (
-          <div className="flex basis-1/4 my-3 mx-2" key={item._id}>
+          <div className="flex basis-1/4 my-3 mx-2"  key={item._id}>
+          
             <Course
               id={item._id}
               name={item.title}
