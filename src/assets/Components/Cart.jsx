@@ -1,7 +1,6 @@
 import React from 'react'
 import CItem from './ui/CItem'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
 
 
@@ -14,16 +13,15 @@ export default function Cart() {
     // console.log(items[0])
     return (
         <>
-            <div className='bg-slate-300 w-full min-h-[100vh] p-5'>
+            <div className='w-full min-h-[100vh] p-5 bg-white bg-[radial-gradient(ellipse_50%_90%_at_0%_-2%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'>
 
-                <div className='flex  justify-center pt-8 '>
+                <div className='flex  justify-center pt-8'>
 
-                    {finalTotalPrice === 0 &&
+                    {finalTotalPrice === 0 && 
                         <div className='flex flex-col space-y-5 justify-evenly items-center border-[1px] border-zinc-600 hover:border-zinc-900 w-10/12 sm:w-5/12  rounded-xl shadow-xl  shadow-zinc-300 hover:shadow-zinc-300  bg-zinc-50 min-h-72'>
                             <span className='text-center text-2xl text-zinc-600 font-semibold'> Your Cart is Empty! </span>
                             
-                            
-                            <Button variant="secondary" > Explore Courses</Button>
+                            <Button className="border-[1px] text-white font-mono hover:border-black border-black bg-zinc-800" variant="destructive" > Explore Courses</Button>
                         </div>
 
                     }

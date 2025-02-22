@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setToken, setUserData } from "../../store/Slices/authSlice";
 import { useSelector } from "react-redux";
 import { BorderBeam } from "./MagicUI/borderbeam";
+import { toast } from "react-toastify";
 
 
 export default function Signup() {
@@ -45,6 +46,8 @@ export default function Signup() {
       role: role
     }
     // console.log(signupData)
+   try{
+
     const response = await axios.post(import.meta.env.VITE_BACKEND_URL + '/api/v1/user/register',
       JSON.stringify(signupData),
       {
@@ -61,10 +64,17 @@ export default function Signup() {
         dispatch(setUserData(res.data.user))
         localStorage.setItem("user", JSON.stringify(res.data.user))
       })
+      
+        toast.success("SignUp Success...")
+    
+      return navigate('/');
+    }
 
+    catch(error){
+      toast.error("Something went wrong")
+    }
 
     // console.log("Sucessfully signedUp")
-    return navigate('/');
   }
 
   return (

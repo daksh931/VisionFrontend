@@ -2,6 +2,7 @@ import Button from "./Button";
 import { useDispatch ,useSelector} from "react-redux";
 import cartSlice from "../../../store/Slices/cartSlice";
 import { cartActions } from "../../../store/Slices/cartSlice";
+import { toast } from "react-toastify";
 
 export default function Course(props) {
 
@@ -20,6 +21,7 @@ export default function Course(props) {
     // const item={ id, name, description, image, price}
   
     dispatch(cartActions.addItemToCart({id, name, description, image, price}));
+    toast.success("Item added to Cart Successfully!")
   }
 
   return (

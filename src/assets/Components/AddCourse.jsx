@@ -8,6 +8,7 @@ import { setCourseData } from '../../store/Slices/addCourse'
 import axios from 'axios'
 import { FaRegFileImage } from "react-icons/fa";
 import Loading from './ui/Loading'
+import { toast } from 'react-toastify'
 
 const AddCourse = () => {
   const navigate = useNavigate();
@@ -55,7 +56,10 @@ const AddCourse = () => {
       }).finally(()=> {
         setLoading(false)
       })
+
+      toast.success("Course Added Successfully.")
     } catch (error) {
+      toast.error("Something went wrong ")
       console.log(error.response.data.message)
     } 
   }

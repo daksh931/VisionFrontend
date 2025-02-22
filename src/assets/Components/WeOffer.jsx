@@ -45,9 +45,10 @@ const WeOffer = () => {
   return (
 
 
-    
-   
-      <div className='pb-12 bg-white bg-[radial-gradient(ellipse_70%_90%_at_50%_-10%,rgba(120,119,198,0.3),rgba(255,255,255,0))] '>
+
+    //                                                            h , w, at x, y axis
+    <div className='pb-12 bg-white bg-[radial-gradient(ellipse_40%_70%_at_0%_-10%,rgba(120,119,198,0.3),rgba(255,255,255,0))] '
+    >
 
       <Box className="flex flex-wrap mx-18 justify-center gap-6 p-6 sm:mx-40 sm:pt-40 ">
         <Box>
@@ -75,38 +76,56 @@ const WeOffer = () => {
           </div>
         </Box>
 
-        </Box>
+      </Box>
 
-        <hr className="mx-3 border-0 h-[2px] w-full bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
+      <hr className="mx-3 border-0 h-[2px] w-full bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
 
 
-        {/* courses section  */}
-        <div className='flex flex-col justify-center sm:flex-col w-full sm:px-52 sm:-space-y-32'>
+      {/* courses section  */}
+      <div className='flex flex-col justify-center sm:flex-col w-full sm:px-52 sm:-space-y-32'
+        style={{
+          backgroundImage: `radial-gradient(circle at  1px 1px, rgba(0,0,0,0.2) 1px,transparent 1px)`,
+          backgroundSize: "10px 10px",
+          backgroundRepeat: "repeat"
+        }}>
 
-          {courses.map((course, index) => (
-            <div
-              key={index}
-              className={`flex justify-center ${index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
-                } mt-12`}
-            >
-              <div
-                className={`shadow-xl rounded-full shadow-zinc-200 hover:shadow-zinc-300
+        {courses.map((course, index) => (
+          <div
+            key={index}
+            className={`flex justify-center ${index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
+              } mt-12`}
+          >
+            <motion.div
+              initial={{
+                rotate: 0
+              }}
+              animate={{
+                rotate: [0, 10, 0]
+              }}
+
+
+
+              className={`shadow-xl rounded-full shadow-zinc-200 hover:shadow-zinc-300
       ${index % 2 === 0 ? "border-b-2 border-r-[1px]" : "border-t-2 border-l-[1px] "} border-slate-400  
       h-60 w-60 sm:h-60 sm:w-60 md:h-96 md:w-96 bg-zinc-50 p-4 font-semibold overflow-hidden 
-      flex items-center justify-center`}
-              >
-                <h2 className="text-slate-700 text-center font-bold text-3xl">
-                  {course.category}
-                </h2>
-              </div>
-            </div>
-          ))}
-
-        </div>
+      flex items-center justify-center
+       inset-x-4 bg-gradient-to-br from from-slate-100 via-gray-50 to-transparent 
+      `}
 
 
-      
-{/* 
+            >
+              <h2 className="text-slate-700 text-center font-bold text-3xl">
+                {course.category}
+              </h2>
+            </motion.div>
+          </div>
+        ))}
+
+      </div>
+
+
+
+      {/* 
       <div className={"flex h-[500px] w-60 flex-col gap-4 lg:h-[250px] "}>
         <MagicCard
           className="h-52 cursor-pointer w-full flex-col items-center justify-center whitespace-nowrap text-4xl "

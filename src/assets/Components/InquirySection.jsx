@@ -17,12 +17,16 @@ const InquirySection = () => {
   };
 
   return (
-    <div className='flex min-h-[100vh] items-center justify-evenly p-4 bg-white bg-[radial-gradient(ellipse_90%_90%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] '>
+    <div className='flex min-h-[100vh] w-full items-center justify-evenly p-4 '
+    style={{
+          backgroundImage: `radial-gradient(square at  1px 1px, rgba(0,0,0,0.2) 1px,transparent 3px)`,
+          backgroundSize: "10px 10px",
+          backgroundRepeat: "repeat"}}>
       <div
         className=" bg-center bg-no-repeat h-96 w-2/5 rounded-lg bg-cover"
         style={{ backgroundImage: 'url("https://images.pexels.com/photos/3183169/pexels-photo-3183169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")' }}
       >
-       
+      
       </div>
 
       <div id="Enquiry Now " className="flex flex-col">
