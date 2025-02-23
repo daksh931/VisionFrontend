@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaBars,
   FaWindowClose,
@@ -18,9 +18,12 @@ export default function Navbar() {
   const { token, userData } = useSelector((state) => state.auth);
   const [navOpen, setNavOpen] = useState(false);
 
-  if (userData == null && token != null) {
-    return navigate("/logout");
+  useEffect(() => {
+  if(!userData && !token && userData?.role !== null){
+    navigate("/logout")
   }
+  }, [token,userData])
+ 
 
   return (
     <nav className="bg-gray-900/90 text-white shadow-md sticky top-0 w-full z-50">
@@ -62,6 +65,13 @@ export default function Navbar() {
                   Courses
                 </Link>
               </DockIcon>
+              {token !== null && userData.role == 'admin' && <DockIcon >
+                <Link
+                  to={"/addCourse"}
+                  className="block py-2 px-3 text-lg font-semibold text-slate-200 hover:text-white hover:border-b-[1px] hover:border-slate-100 ">
+                  Add Course
+                </Link>
+              </DockIcon>}
               <DockIcon >
                 <Link
                   to={"/about"}
@@ -125,7 +135,7 @@ export default function Navbar() {
 
             </div>
             <hr />
-            <NavLinks closeMenu={() => setNavOpen(false)} />
+            <NavLinks closeMenu={() => setNavOpen(false)} token={token} role={userData?.role} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -133,11 +143,12 @@ export default function Navbar() {
   );
 }
 
-const NavLinks = ({ closeMenu }) => (
+const NavLinks = ({ closeMenu ,token , role}) => (
   <>
     {[
       { name: "Dashboard", to: "/" },
       { name: "Courses", to: "/courses" },
+       ...(token && role === "admin" ? [{ name: "Add Course", to: "/addCourse" }] : []),
       { name: "About Us", to: "/about" },
       { name: "Contact Us", to: "/contact" },
     ].map((link, index) => (
