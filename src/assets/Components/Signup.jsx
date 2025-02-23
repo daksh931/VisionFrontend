@@ -69,7 +69,6 @@ export default function Signup() {
     
       return navigate('/');
     }
-
     catch(error){
       toast.error("Something went wrong")
     }

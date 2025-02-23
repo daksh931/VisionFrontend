@@ -17,12 +17,17 @@ import Contact from './assets/Components/Contact'
 import Cookies from 'js-cookie';
 import ProtectedRoute from './ProtectedRoute'
 import AdminRoute from './AdminRoute'
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HoverBorderCircle from './assets/Components/MovingHover'
+import EmpoweringSection from './assets/Components/heroSection'
+import PopularGoals from './assets/Components/PopularGoals'
+
 
 function App() {
-  const token = Cookies.get('token');
-  console.log(token)
+  // const token = Cookies.get('token');
+  // console.log(token)
 
   
 
@@ -34,11 +39,15 @@ function App() {
       <Routes>
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/hoverBorder' element={<HoverBorderCircle />}/>
+
         {/* <Route path='/googlelogin' element={< />} /> */}
         {/* <Route path='/' element={<Courses />} /> */}
         <Route path='/' element={<HomePage/>}/>
         <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/about' element={<About />} />
+        <Route path='/hero' element={<EmpoweringSection />} />
+        <Route path='/goals' element={<PopularGoals />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/password/reset/:userid/:token' element={<ResetPassword />} />
         <Route path='courses' element={<Courses />} />
@@ -49,6 +58,7 @@ function App() {
           <Route path='logout' element={<Logout />} />
           <Route path='/' element={<AdminRoute />}>
           <Route path='addCourse' element={<AddCourse />} />
+
           </Route>
         </Route>
       </Routes>
