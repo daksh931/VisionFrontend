@@ -8,11 +8,18 @@
   .moving-track {
     display: flex;
     gap: 20px;
-    animation: moveLeft 40s linear infinite;
+    animation: moveLeft 100s linear infinite;
     width: max-content; 
     /* Ensures smooth looping */
   }
-  
+
+  .moving-track-right-left {
+    display: flex;
+    gap: 20px;
+    animation: moveRightToLeft 200s linear infinite;
+    width: max-content; 
+    /* Ensures smooth looping */
+  }
   
   
   /* Animation for infinite scrolling */
@@ -24,9 +31,20 @@
       transform: translateX(0%);
     }
   }
-  
-  /* Pause animation on hover */
-  .moving-track:hover {
-    animation-play-state: paused;
+
+  @keyframes moveRightToLeft {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
   
+  /* Pause animation on hover */
+  .moving-track:hover  {
+    animation-play-state: paused;
+  }
+  .moving-track-right-left:hover{
+    animation-play-state: paused;
+  }
