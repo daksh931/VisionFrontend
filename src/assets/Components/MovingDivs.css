@@ -48,3 +48,8 @@
   .moving-track-right-left:hover{
     animation-play-state: paused;
   }
+
+  .will-change-filter {
+    will-change: filter;
+  }
+  
