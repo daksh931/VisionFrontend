@@ -12,7 +12,7 @@ const EmpoweringSection = () => {
     <feDropShadow dx="15" dy="15" stdDeviation="13" floodColor="Grey" floodOpacity="0.5"/>
   </filter>
   <filter id="colored-shadow-hover">
-    <feDropShadow dx="10" dy="10" stdDeviation="13" floodColor="blue" floodOpacity="0.6"/>
+    <feDropShadow dx="10" dy="10" stdDeviation="13" floodColor="blue" floodOpacity="0.5"/>
   </filter>
 </svg>
 

@@ -9,7 +9,7 @@ import { motion, } from "motion/react"
 
 export const BorderBeam = ({
   className,
-  size = 50,
+  size = 100,
   delay = 0,
   duration = 8,
   // colorFrom = "#ffaa40",

@@ -12,7 +12,8 @@ export default function Course(props) {
 
   const addToCartHandler = () => {
     if (!token || token == null || !userData || userData == null) {
-      alert("login First");
+      toast.error("login First");
+      return;
     }
     const { id, name, description, image, price } = props;
     // console.log(id, name, description, image, price)

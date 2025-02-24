@@ -1,4 +1,4 @@
-export default function Input(props) {
+export default function   Input(props) {
 
   const textType = ""
   // const textColorr = ""

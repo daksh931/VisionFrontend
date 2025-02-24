@@ -50,8 +50,8 @@ const PopularGoals = () => {
           >
             <span className="text-5xl">{goal.logo}</span>
             <h3 className="mt-4 text-xl font-semibold text-gray-700">{goal.name}</h3>
-            <BorderBeam  delay={index * 5} reverse={index % 2 === 0}  colorFrom="#000000" duration={10}
-           colorTo = "#ffffff" />
+            <BorderBeam size={200} delay={index * 5} reverse={index % 2 === 0}  colorFrom="#a9a9a9" duration={10}
+           colorTo = "#71c5e7" />
           </motion.div>
         ))}
       </div>
@@ -70,8 +70,8 @@ const PopularGoals = () => {
           >
             <span className="text-5xl">{goal.logo}</span>
             <h3 className="mt-4 text-xl font-semibold text-gray-700">{goal.name}</h3>
-            <BorderBeam  delay={index * 5} reverse={index % 2 === 0}  colorFrom="#000000" duration={10}
-           colorTo = "#ffffff" />
+            <BorderBeam size={200} delay={index * 5} reverse={index % 2 === 0}  colorFrom="#a9a9a9" duration={10}
+           colorTo = "#71c5e7" />
           </motion.div>
         ))}
       </div>
