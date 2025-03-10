@@ -22,11 +22,11 @@ export default function HomePage() {
       <PopularGoals/>
       <TestimonialSection/>
       
-      <WeOffer/>
+      {/* <WeOffer/> */}
      
       {/* <MarqueeCourses/> */}
-      <ScrollingTestimonials />
-      <MarqueeDemo />
+      {/* <ScrollingTestimonials /> */}
+      {/* <MarqueeDemo /> */}
     </div>
   );
 }

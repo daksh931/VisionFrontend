@@ -16,13 +16,13 @@ const EnquirySection = () => {
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
         <p className="text-gray-600 mb-6">Fill out the form below, and we'll get back to you shortly.</p>
 
-        <form className="space-y-4">
+        <form className="space-y-4 ">
           {/* Contact Name */}
           <div>
             <label className="block text-gray-700 font-medium">Name</label>
             <input
               type="text"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-zinc-300"
               placeholder="Enter your name"
             />
           </div>
@@ -32,7 +32,7 @@ const EnquirySection = () => {
             <label className="block text-gray-700 font-medium">Email</label>
             <input
               type="email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-300"
               placeholder="Enter your email"
             />
           </div>
@@ -41,7 +41,7 @@ const EnquirySection = () => {
           <div>
             <label className="block text-gray-700 font-medium">Message</label>
             <textarea
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-300"
               rows="4"
               placeholder="Your message..."
             ></textarea>
@@ -50,7 +50,8 @@ const EnquirySection = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+            // className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+          className="bg-zinc-800 w-full text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-zinc-900 transition duration-300 shadow-black/40 hover:shadow-black/30 shadow-md hover:shadow-lg focus:outline-none "
           >
             Send Message
           </button>
