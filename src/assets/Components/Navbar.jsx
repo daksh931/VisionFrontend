@@ -38,7 +38,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <img src="/logo1.svg" alt="My Courses Logo" className="h-10 w-full" />
+          <img src="/visionlogo.svg" alt="My Courses Logo" className="h-10 w-full" />
         </Link>
 
         {/* Desktop Menu */}
@@ -46,6 +46,8 @@ export default function Navbar() {
           <NavLinks />
         </div> */}
         {/* Desktop Menu */}
+        <div className=" absolute  left-1/2 right-1/2 justify-center">
+
         <div className="relative text-nowrap hidden justify-center items-center md:flex  w-full ">
           <div>
 
@@ -88,6 +90,7 @@ export default function Navbar() {
               </DockIcon>
             </Dock>
           </div>
+        </div>
         </div>
 
 

@@ -1,16 +1,30 @@
 import React from "react";
-
+import {motion} from "framer-motion"; 
 function About() {
   return (
     <div className="py-16 bg-slate-100 min-h-[100vh] ">
       <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
         <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
-          <div className="md:5/12 lg:w-5/12">
+          
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="w-full flex flex-col items-center text-center md:5/12 lg:w-5/12"
+          // className="md:5/12 lg:w-5/12"
+          >
             {/* <img src={about} alt="image" /> */}
             <img src="https://images.unsplash.com/photo-1482059387495-939d52279925?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="image" />
 
-          </div>
-          <div className="md:7/12 lg:w-6/12">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          className="md:7/12 lg:w-6/12">
             <h2 className="text-2xl text-gray-900 font-bold md:text-4xl">
               Vision Classes 
             </h2>
@@ -24,7 +38,7 @@ function About() {
 
 
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

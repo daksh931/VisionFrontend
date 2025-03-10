@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setToken, setUserData } from "../../store/Slices/authSlice";
 import { BorderBeam } from "./MagicUI/borderbeam";
 import { toast } from "react-toastify";
-import {useFormik} from "formik";
+import { useFormik } from "formik";
 import { loginSchema } from "./schemas";
 
 export default function Login() {
@@ -18,50 +18,51 @@ export default function Login() {
   // const [password, setPassword] = useState("");
 
   const initialValues = {
-    email : "",
-    password : "", 
+    email: "",
+    password: "",
   }
 
-  const {values, errors, handleBlur,touched, handleChange, handleSubmit } = useFormik({
-    initialValues : initialValues,
-    validationSchema : loginSchema,
-    onSubmit : async (values)=> {
+  const { values, errors, handleBlur, touched, handleChange, handleSubmit } = useFormik({
+    initialValues: initialValues,
+    validationSchema: loginSchema,
+    onSubmit: async (values) => {
       // console.log("objectobject")
       const logindata = {
         email: values.email,
         password: values.password,
       }
       // console.log(logindata)
-      try{
-  
-      const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/v1/user/login",
-        JSON.stringify(logindata),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }).then((res) => {
-          // console.log(res.data.user)
-  
-          dispatch(setToken(JSON.stringify(res.data.token)))
-          localStorage.setItem("token", JSON.stringify(res.data.token))
-  
-          // console.log(res.data.user)
-          dispatch(setUserData(res.data.user))
-          localStorage.setItem("user", JSON.stringify(res.data.user))
-  
-        })
-  
-      // console.log(res.data.token)
-      // console.log(loginData)
-      // console.log("Success Login")
-      toast.success("Login Sucess");
-      return navigate('/')
-    }
-    catch(error){
-      toast.error("Something went wrong...")
-    }
+      try {
+
+        const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/v1/user/login",
+          JSON.stringify(logindata),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }).then((res) => {
+            // console.log(res.data.user)
+
+            dispatch(setToken(JSON.stringify(res.data.token)))
+            localStorage.setItem("token", JSON.stringify(res.data.token))
+
+            // console.log(res.data.user)
+            dispatch(setUserData(res.data.user))
+            localStorage.setItem("user", JSON.stringify(res.data.user))
+
+          })
+
+        // console.log(res.data.token)
+        // console.log(loginData)
+        // console.log("Success Login")
+        toast.success("Login Sucess");
+        return navigate('/')
+      }
+      catch (error) {
+        toast.error("Something went wrong...")
+      }
+      console.log("error wrong")
     }
   })
 
@@ -113,7 +114,7 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <div class=" flex flex-col top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_90%_90%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
 
-        {/* <div className="login-container flex flex-col w-full min-h-[120vh] bg-slate-100"> */}
+          {/* <div className="login-container flex flex-col w-full min-h-[120vh] bg-slate-100"> */}
 
 
           <div className="relative self-center mt-12 shadow-xl  shadow-zinc-200 hover:shadow-zinc-300  rounded-md border-[1px] border-slate-200  min-h-96 min-w-80  bg-slate-50 p-4 font-semibold ">
@@ -121,11 +122,11 @@ export default function Login() {
               Login Here
             </h2>
 
-            <Input name={"email"} placeholder={"Email"}  value={values.email} onChange={handleChange} onBlur={handleBlur} />
-            {errors.email && touched.email ?<p className="form-error pl-3 text-red-500 font-normal"> {errors.email}</p> : null}
-            
-            <Input name={"password"}  type={'password'} placeholder={"Password"} value={values.password} onChange={handleChange} onBlur={handleBlur} />
-            {errors.password && touched.password ?<p className="form-error pl-3 text-red-500 font-normal"> {errors.password}</p> : null}
+            <Input name={"email"} placeholder={"Email"} value={values.email} onChange={handleChange} onBlur={handleBlur} />
+            {errors.email && touched.email ? <p className="form-error pl-3 text-red-500 font-normal"> {errors.email}</p> : null}
+
+            <Input name={"password"} type={'password'} placeholder={"Password"} value={values.password} onChange={handleChange} onBlur={handleBlur} />
+            {errors.password && touched.password ? <p className="form-error pl-3 text-red-500 font-normal"> {errors.password}</p> : null}
 
             <div className="pt-6">
 

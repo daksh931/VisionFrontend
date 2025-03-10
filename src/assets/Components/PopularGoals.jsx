@@ -35,7 +35,7 @@ const PopularGoals = () => {
       </motion.div>
 
       {/* Cards Grid */}
-      <div className=" gap-8 px-6 md:px-16 moving-track mb-5">
+      <div className=" gap-8 px-6 md:px-16 moving-track mb-5 mt-28">
         {[...goals,...goals,...goals].map((goal,index) => (
           <motion.div
             key={goal.id}
@@ -55,7 +55,7 @@ const PopularGoals = () => {
           </motion.div>
         ))}
       </div>
-      <div className=" gap-8 px-6 md:px-16 moving-track-right-left">
+      {/* <div className=" gap-8 px-6 md:px-16 moving-track-right-left">
         {[...goals,...goals,...goals].map((goal,index) => (
           <motion.div
             key={goal.id}
@@ -74,7 +74,7 @@ const PopularGoals = () => {
            colorTo = "#71c5e7" />
           </motion.div>
         ))}
-      </div>
+      </div> */}
       
     </section>
   );

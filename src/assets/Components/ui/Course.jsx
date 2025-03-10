@@ -43,7 +43,7 @@ export default function Course(props) {
         <div className="flex flex-col mt-3 space-y-2 p-4">
           <h2 className="text-xl font-semibold text-gray-800">{props.name}</h2>
           <p className="text-gray-600 text-sm">{props.description}</p>
-          <p className="text-lg font-medium text-blue-600">{`Price - ₹${props.price}`}</p>
+          <p className="text-lg font-medium text-zinc-600">{`Price - ₹${props.price}`}</p>
         </div>
 
         {/* Action Buttons */}
@@ -55,8 +55,10 @@ export default function Course(props) {
             Add to Cart
           </button>
           <button onClick={addToCartHandler}
-            className="w-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white py-2 rounded-lg 
-                           hover:from-blue-600 hover:to-blue-800 transition duration-300"
+           className="w-1/2 bg-gray-200 text-gray-700 py-2 rounded-lg
+                           hover:bg-gray-300 transition duration-300"
+            // className="w-1/2 bg-gradient-to-r from-zinc-700 to-zinc-800 text-white py-2 rounded-lg 
+            //                hover:from-zinc-900 hover:to-zinc-950 transition duration-300"
           >
             Buy Now
           </button>
