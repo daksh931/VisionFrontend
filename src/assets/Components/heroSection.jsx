@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 
 const EmpoweringSection = () => {
   return (
 
     <section className="flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-16 bg-white">
-
+{/* shadow of left image svg with css property on hover shadow color changes  */}
 <svg className="absolute invisible">
   <filter id="colored-shadow">
     <feDropShadow dx="15" dy="15" stdDeviation="13" floodColor="Grey" floodOpacity="0.5"/>
@@ -45,9 +46,12 @@ const EmpoweringSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
           Empowering Students for a Brighter Future...
         </h2>
-        <button className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition duration-300">
-          Explore Now
+        <div>
+
+        <button  className="bg-zinc-800 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-black transition duration-300 shadow-black/40 hover:shadow-black/40 shadow-md hover:shadow-lg focus:outline-none ">
+          <Link to={"/courses"}>  Explore Now  </Link>
         </button>
+        </div>
       </motion.div>
     </section>
   );
